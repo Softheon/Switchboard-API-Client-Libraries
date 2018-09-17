@@ -5,6 +5,6 @@ A collection of libraries for the Softheon Switchboard API. Client libraries are
 * [Java](https://github.com/Softheon/Switchboard-API-Client-Libraries/tree/master/Java)
 * [Node.js](https://github.com/Softheon/Switchboard-API-Client-Libraries/tree/master/NodeJS)
 * [TypeScript](https://github.com/Softheon/Switchboard-API-Client-Libraries/tree/master/TypeScript)
-* [Python](https://github.com/Softheon/Switchboard-API-Client-Libraries/tree/master/Python/softheon)
+* [Python](https://github.com/Softheon/Switchboard-API-Client-Libraries/tree/master/Python)
 * [Ruby](https://github.com/Softheon/Switchboard-API-Client-Libraries/tree/master/Ruby)
 * [PHP](https://github.com/Softheon/Switchboard-API-Client-Libraries/tree/master/PHP)
