@@ -10,11 +10,14 @@ const packageName = "";
 const packageVersion = "";
 
 export class SoftheonSwitchboardContext extends msRest.ServiceClient {
+  credentials: msRest.ServiceClientCredentials;
 
   /**
    * @class
    * Initializes a new instance of the SoftheonSwitchboardContext class.
    * @constructor
+   *
+   * @param {msRest.ServiceClientCredentials} credentials - Subscription credentials which uniquely identify client subscription.
    *
    * @param {string} [baseUri] - The base URI of the service.
    *
@@ -28,19 +31,23 @@ export class SoftheonSwitchboardContext extends msRest.ServiceClient {
    * @param {boolean} [options.noRetryPolicy] - If set to true, turn off default retry policy
    *
    */
-  constructor(baseUri?: string, options?: msRest.ServiceClientOptions) {
+  constructor(credentials: msRest.ServiceClientCredentials, baseUri?: string, options?: msRest.ServiceClientOptions) {
+    if (credentials === null || credentials === undefined) {
+      throw new Error('\'credentials\' cannot be null.');
+    }
 
     if (!options) {
       options = {};
     }
 
-    super(undefined, options);
+    super(credentials, options);
 
     this.baseUri = baseUri as string;
     if (!this.baseUri) {
       this.baseUri = "http://localhost";
     }
     this.requestContentType = "application/json; charset=utf-8";
+    this.credentials = credentials;
 
     this.addUserAgentInfo(`${packageName}/${packageVersion}`);
   }
