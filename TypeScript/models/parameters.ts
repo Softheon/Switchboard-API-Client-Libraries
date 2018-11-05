@@ -6,23 +6,13 @@
 
 import * as msRest from "ms-rest-js";
 
-export const boardId0: msRest.OperationURLParameter = {
+export const boardId: msRest.OperationURLParameter = {
   parameterPath: "boardId",
   mapper: {
     required: true,
     serializedName: "boardId",
     type: {
       name: "Number"
-    }
-  }
-};
-export const boardId1: msRest.OperationURLParameter = {
-  parameterPath: "boardId",
-  mapper: {
-    required: true,
-    serializedName: "boardId",
-    type: {
-      name: "String"
     }
   }
 };
@@ -51,6 +41,16 @@ export const switchId: msRest.OperationURLParameter = {
   mapper: {
     required: true,
     serializedName: "switchId",
+    type: {
+      name: "Number"
+    }
+  }
+};
+export const taskId: msRest.OperationURLParameter = {
+  parameterPath: "taskId",
+  mapper: {
+    required: true,
+    serializedName: "taskId",
     type: {
       name: "Number"
     }
