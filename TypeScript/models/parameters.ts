@@ -6,6 +6,16 @@
 
 import * as msRest from "ms-rest-js";
 
+export const accountId: msRest.OperationURLParameter = {
+  parameterPath: "accountId",
+  mapper: {
+    required: true,
+    serializedName: "accountId",
+    type: {
+      name: "Number"
+    }
+  }
+};
 export const boardId: msRest.OperationURLParameter = {
   parameterPath: "boardId",
   mapper: {
@@ -13,6 +23,16 @@ export const boardId: msRest.OperationURLParameter = {
     serializedName: "boardId",
     type: {
       name: "Number"
+    }
+  }
+};
+export const boardName: msRest.OperationURLParameter = {
+  parameterPath: "boardName",
+  mapper: {
+    required: true,
+    serializedName: "boardName",
+    type: {
+      name: "String"
     }
   }
 };
@@ -43,6 +63,16 @@ export const switchId: msRest.OperationURLParameter = {
     serializedName: "switchId",
     type: {
       name: "Number"
+    }
+  }
+};
+export const switchName: msRest.OperationURLParameter = {
+  parameterPath: "switchName",
+  mapper: {
+    required: true,
+    serializedName: "switchName",
+    type: {
+      name: "String"
     }
   }
 };
