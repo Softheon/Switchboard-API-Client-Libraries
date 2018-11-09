@@ -131,7 +131,6 @@ export const BoardPostModel: msRest.CompositeMapper = {
         }
       },
       description: {
-        required: true,
         serializedName: "description",
         constraints: {
           MaxLength: 250,
@@ -412,6 +411,18 @@ export const SwitchModel: msRest.CompositeMapper = {
         type: {
           name: "String"
         }
+      },
+      createdUserName: {
+        serializedName: "createdUserName",
+        type: {
+          name: "String"
+        }
+      },
+      modifiedUserName: {
+        serializedName: "modifiedUserName",
+        type: {
+          name: "String"
+        }
       }
     }
   }
@@ -435,7 +446,6 @@ export const SwitchPostModel: msRest.CompositeMapper = {
         }
       },
       description: {
-        required: true,
         serializedName: "description",
         constraints: {
           MaxLength: 250,
