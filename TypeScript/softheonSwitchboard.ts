@@ -34,6 +34,31 @@ class SoftheonSwitchboard extends SoftheonSwitchboardContext {
   // methods on the client.
 
   /**
+   * @summary Gets this instance.
+   *
+   * @param {RequestOptionsBase} [options] Optional Parameters.
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse} The deserialized result object.
+   *
+   * @reject {Error|ServiceError} The error object.
+   */
+  getAuthDetails(): Promise<Models.GetAuthDetailsResponse>;
+  getAuthDetails(options: msRest.RequestOptionsBase): Promise<Models.GetAuthDetailsResponse>;
+  getAuthDetails(callback: msRest.ServiceCallback<string>): void;
+  getAuthDetails(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<string>): void;
+  getAuthDetails(options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<string>): Promise<Models.GetAuthDetailsResponse> {
+    return this.sendOperationRequest(
+      {
+        options
+      },
+      getAuthDetailsOperationSpec,
+      callback) as Promise<Models.GetAuthDetailsResponse>;
+  }
+  // methods on the client.
+
+  /**
    * @summary Gets a board by the board id.
    *
    * @param {number} id The identifier.
@@ -114,6 +139,35 @@ class SoftheonSwitchboard extends SoftheonSwitchboardContext {
       },
       deleteBoardOperationSpec,
       callback);
+  }
+  // methods on the client.
+
+  /**
+   * @param {string} boardName
+   *
+   * @param {number} accountId
+   *
+   * @param {RequestOptionsBase} [options] Optional Parameters.
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse} The deserialized result object.
+   *
+   * @reject {Error|ServiceError} The error object.
+   */
+  getBoardByName(boardName: string, accountId: number): Promise<Models.GetBoardByNameResponse>;
+  getBoardByName(boardName: string, accountId: number, options: msRest.RequestOptionsBase): Promise<Models.GetBoardByNameResponse>;
+  getBoardByName(boardName: string, accountId: number, callback: msRest.ServiceCallback<Models.BoardModel>): void;
+  getBoardByName(boardName: string, accountId: number, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BoardModel>): void;
+  getBoardByName(boardName: string, accountId: number, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BoardModel>): Promise<Models.GetBoardByNameResponse> {
+    return this.sendOperationRequest(
+      {
+        boardName,
+        accountId,
+        options
+      },
+      getBoardByNameOperationSpec,
+      callback) as Promise<Models.GetBoardByNameResponse>;
   }
   // methods on the client.
 
@@ -438,18 +492,18 @@ class SoftheonSwitchboard extends SoftheonSwitchboardContext {
    *
    * @reject {Error|ServiceError} The error object.
    */
-  getSwitch(id: number): Promise<Models.GetSwitchResponse>;
-  getSwitch(id: number, options: msRest.RequestOptionsBase): Promise<Models.GetSwitchResponse>;
-  getSwitch(id: number, callback: msRest.ServiceCallback<Models.SwitchModel>): void;
-  getSwitch(id: number, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.SwitchModel>): void;
-  getSwitch(id: number, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.SwitchModel>): Promise<Models.GetSwitchResponse> {
+  getSwitchById(id: number): Promise<Models.GetSwitchByIdResponse>;
+  getSwitchById(id: number, options: msRest.RequestOptionsBase): Promise<Models.GetSwitchByIdResponse>;
+  getSwitchById(id: number, callback: msRest.ServiceCallback<Models.SwitchModel>): void;
+  getSwitchById(id: number, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.SwitchModel>): void;
+  getSwitchById(id: number, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.SwitchModel>): Promise<Models.GetSwitchByIdResponse> {
     return this.sendOperationRequest(
       {
         id,
         options
       },
-      getSwitchOperationSpec,
-      callback) as Promise<Models.GetSwitchResponse>;
+      getSwitchByIdOperationSpec,
+      callback) as Promise<Models.GetSwitchByIdResponse>;
   }
   // methods on the client.
 
@@ -506,6 +560,37 @@ class SoftheonSwitchboard extends SoftheonSwitchboardContext {
       },
       deleteSwitchVersionOperationSpec,
       callback);
+  }
+  // methods on the client.
+
+  /**
+   * @summary Gets the specific switch according to board and switch name.
+   *
+   * @param {string} boardName Name of the board.
+   *
+   * @param {string} switchName Name of the switch.
+   *
+   * @param {RequestOptionsBase} [options] Optional Parameters.
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse} The deserialized result object.
+   *
+   * @reject {Error|ServiceError} The error object.
+   */
+  getSwitchByName(boardName: string, switchName: string): Promise<Models.GetSwitchByNameResponse>;
+  getSwitchByName(boardName: string, switchName: string, options: msRest.RequestOptionsBase): Promise<Models.GetSwitchByNameResponse>;
+  getSwitchByName(boardName: string, switchName: string, callback: msRest.ServiceCallback<Models.SwitchModel>): void;
+  getSwitchByName(boardName: string, switchName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.SwitchModel>): void;
+  getSwitchByName(boardName: string, switchName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.SwitchModel>): Promise<Models.GetSwitchByNameResponse> {
+    return this.sendOperationRequest(
+      {
+        boardName,
+        switchName,
+        options
+      },
+      getSwitchByNameOperationSpec,
+      callback) as Promise<Models.GetSwitchByNameResponse>;
   }
   // methods on the client.
 
@@ -778,6 +863,23 @@ class SoftheonSwitchboard extends SoftheonSwitchboardContext {
 
 // Operation Specifications
 const serializer = new msRest.Serializer(Mappers);
+const getAuthDetailsOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "v1/AuthDetails",
+  responses: {
+    200: {
+      bodyMapper: {
+        serializedName: "parsedResponse",
+        type: {
+          name: "String"
+        }
+      }
+    },
+    default: {}
+  },
+  serializer
+};
+
 const getBoardByIdOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "v1/Board/{id}",
@@ -831,6 +933,25 @@ const deleteBoardOperationSpec: msRest.OperationSpec = {
   responses: {
     204: {},
     400: {},
+    401: {},
+    403: {},
+    404: {},
+    default: {}
+  },
+  serializer
+};
+
+const getBoardByNameOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "v1/Board/{boardName}/account/{accountId}",
+  urlParameters: [
+    Parameters.boardName,
+    Parameters.accountId
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.BoardModel
+    },
     401: {},
     403: {},
     404: {},
@@ -1117,7 +1238,7 @@ const createSwitchOperationSpec: msRest.OperationSpec = {
   serializer
 };
 
-const getSwitchOperationSpec: msRest.OperationSpec = {
+const getSwitchByIdOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "v1/switch/{id}",
   urlParameters: [
@@ -1167,6 +1288,25 @@ const deleteSwitchVersionOperationSpec: msRest.OperationSpec = {
   ],
   responses: {
     204: {},
+    401: {},
+    403: {},
+    404: {},
+    default: {}
+  },
+  serializer
+};
+
+const getSwitchByNameOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "v1/board/{boardName}/switch/{switchName}",
+  urlParameters: [
+    Parameters.boardName,
+    Parameters.switchName
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.SwitchModel
+    },
     401: {},
     403: {},
     404: {},
