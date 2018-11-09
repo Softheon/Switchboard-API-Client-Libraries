@@ -88,9 +88,9 @@ export interface BoardPostModel {
    */
   name: string;
   /**
-   * @member {string} description Gets or sets the description.
+   * @member {string} [description] Gets or sets the description.
    */
-  description: string;
+  description?: string;
 }
 
 /**
@@ -276,6 +276,16 @@ export interface SwitchModel {
    * @member {string} [version] Gets or sets the version.
    */
   version?: string;
+  /**
+   * @member {string} [createdUserName] Gets or sets the name of the created
+   * user.
+   */
+  createdUserName?: string;
+  /**
+   * @member {string} [modifiedUserName] Gets or sets the name of the modified
+   * user.
+   */
+  modifiedUserName?: string;
 }
 
 /**
@@ -290,9 +300,9 @@ export interface SwitchPostModel {
    */
   name: string;
   /**
-   * @member {string} description Gets or sets the description.
+   * @member {string} [description] Gets or sets the description.
    */
-  description: string;
+  description?: string;
   /**
    * @member {string} [comment] Gets or sets the comment.
    */
@@ -624,9 +634,91 @@ export interface SoftheonSwitchboardGetSwitchesByFilterOptionalParams extends ms
 }
 
 /**
+ * Contains response data for the getAuthDetails operation.
+ */
+export type GetAuthDetailsResponse = {
+  /**
+   * The parsed response body.
+   */
+  body: string;
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: string;
+    };
+};
+
+/**
  * Contains response data for the getBoardById operation.
  */
 export type GetBoardByIdResponse = {
+  /**
+   * Gets or sets the board identifier.
+   */
+  boardId?: number;
+  /**
+   * Gets or sets the account identifier.
+   */
+  accountId?: number;
+  /**
+   * Gets or sets the created user identifier.
+   */
+  createdUserId?: number;
+  /**
+   * Gets or sets the modified user identifier.
+   */
+  modifiedUserId?: number;
+  /**
+   * Gets or sets the name.
+   */
+  name?: string;
+  /**
+   * Gets or sets the description.
+   */
+  description?: string;
+  /**
+   * Gets or sets the created date.
+   */
+  createdDate?: Date;
+  /**
+   * Gets or sets the modified date.
+   */
+  modifiedDate?: Date;
+  /**
+   * Gets or sets the name of the created user.
+   */
+  createdUserName?: string;
+  /**
+   * Gets or sets the name of the modified user.
+   */
+  modifiedUserName?: string;
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: BoardModel;
+    };
+};
+
+/**
+ * Contains response data for the getBoardByName operation.
+ */
+export type GetBoardByNameResponse = {
   /**
    * Gets or sets the board identifier.
    */
@@ -979,6 +1071,14 @@ export type CreateSwitchResponse = {
    */
   version?: string;
   /**
+   * Gets or sets the name of the created user.
+   */
+  createdUserName?: string;
+  /**
+   * Gets or sets the name of the modified user.
+   */
+  modifiedUserName?: string;
+  /**
    * The underlying HTTP response.
    */
   _response: msRest.HttpResponse & {
@@ -994,9 +1094,9 @@ export type CreateSwitchResponse = {
 };
 
 /**
- * Contains response data for the getSwitch operation.
+ * Contains response data for the getSwitchById operation.
  */
-export type GetSwitchResponse = {
+export type GetSwitchByIdResponse = {
   /**
    * Gets or sets the switch identifier.
    */
@@ -1045,6 +1145,89 @@ export type GetSwitchResponse = {
    * Gets or sets the version.
    */
   version?: string;
+  /**
+   * Gets or sets the name of the created user.
+   */
+  createdUserName?: string;
+  /**
+   * Gets or sets the name of the modified user.
+   */
+  modifiedUserName?: string;
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: SwitchModel;
+    };
+};
+
+/**
+ * Contains response data for the getSwitchByName operation.
+ */
+export type GetSwitchByNameResponse = {
+  /**
+   * Gets or sets the switch identifier.
+   */
+  switchId?: number;
+  /**
+   * Gets or sets the board identifier.
+   */
+  boardId?: number;
+  /**
+   * Gets or sets the created user identifier.
+   */
+  createdUserId?: number;
+  /**
+   * Gets or sets the modified user identifier.
+   */
+  modifiedUserId?: number;
+  /**
+   * Gets or sets the name.
+   */
+  name?: string;
+  /**
+   * Gets or sets the description.
+   */
+  description?: string;
+  /**
+   * Gets or sets the comment.
+   */
+  comment?: string;
+  /**
+   * Gets or sets the created date.
+   */
+  createdDate?: Date;
+  /**
+   * Gets or sets the modified date.
+   */
+  modifiedDate?: Date;
+  /**
+   * Gets or sets the value.
+   */
+  value?: string;
+  /**
+   * Gets or sets the type of the value.
+   */
+  valueType?: string;
+  /**
+   * Gets or sets the version.
+   */
+  version?: string;
+  /**
+   * Gets or sets the name of the created user.
+   */
+  createdUserName?: string;
+  /**
+   * Gets or sets the name of the modified user.
+   */
+  modifiedUserName?: string;
   /**
    * The underlying HTTP response.
    */
