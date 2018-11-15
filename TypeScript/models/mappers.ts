@@ -210,6 +210,18 @@ export const BoardHistoryModel: msRest.CompositeMapper = {
         type: {
           name: "DateTime"
         }
+      },
+      createdUserName: {
+        serializedName: "createdUserName",
+        type: {
+          name: "String"
+        }
+      },
+      modifiedUserName: {
+        serializedName: "modifiedUserName",
+        type: {
+          name: "String"
+        }
       }
     }
   }
@@ -630,6 +642,18 @@ export const SwitchHistoryModel: msRest.CompositeMapper = {
       },
       version: {
         serializedName: "version",
+        type: {
+          name: "String"
+        }
+      },
+      createdUserName: {
+        serializedName: "createdUserName",
+        type: {
+          name: "String"
+        }
+      },
+      modifiedUserName: {
+        serializedName: "modifiedUserName",
         type: {
           name: "String"
         }
