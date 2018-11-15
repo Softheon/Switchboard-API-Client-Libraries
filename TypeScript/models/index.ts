@@ -138,6 +138,16 @@ export interface BoardHistoryModel {
    * @member {Date} [modifiedDate] Gets or sets the modified date.
    */
   modifiedDate?: Date;
+  /**
+   * @member {string} [createdUserName] Gets or sets the name of the created
+   * user.
+   */
+  createdUserName?: string;
+  /**
+   * @member {string} [modifiedUserName] Gets or sets the name of the modified
+   * user.
+   */
+  modifiedUserName?: string;
 }
 
 /**
@@ -407,6 +417,16 @@ export interface SwitchHistoryModel {
    * @member {string} [version] Gets or sets the version.
    */
   version?: string;
+  /**
+   * @member {string} [createdUserName] Gets or sets the name of the created
+   * user.
+   */
+  createdUserName?: string;
+  /**
+   * @member {string} [modifiedUserName] Gets or sets the name of the modified
+   * user.
+   */
+  modifiedUserName?: string;
 }
 
 /**
@@ -912,6 +932,14 @@ export type GetBoardHistoryByIdResponse = {
    */
   modifiedDate?: Date;
   /**
+   * Gets or sets the name of the created user.
+   */
+  createdUserName?: string;
+  /**
+   * Gets or sets the name of the modified user.
+   */
+  modifiedUserName?: string;
+  /**
    * The underlying HTTP response.
    */
   _response: msRest.HttpResponse & {
@@ -1299,6 +1327,14 @@ export type GetSwitchHistoryResponse = {
    * Gets or sets the version.
    */
   version?: string;
+  /**
+   * Gets or sets the name of the created user.
+   */
+  createdUserName?: string;
+  /**
+   * Gets or sets the name of the modified user.
+   */
+  modifiedUserName?: string;
   /**
    * The underlying HTTP response.
    */
