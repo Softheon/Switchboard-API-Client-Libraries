@@ -679,6 +679,65 @@ class SoftheonSwitchboard extends SoftheonSwitchboardContext {
   // methods on the client.
 
   /**
+   * @summary Gets the switch version.
+   *
+   * @param {number} id The identifier.
+   *
+   * @param {RequestOptionsBase} [options] Optional Parameters.
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse} The deserialized result object.
+   *
+   * @reject {Error|ServiceError} The error object.
+   */
+  getSwitchVersionById(id: number): Promise<Models.GetSwitchVersionByIdResponse>;
+  getSwitchVersionById(id: number, options: msRest.RequestOptionsBase): Promise<Models.GetSwitchVersionByIdResponse>;
+  getSwitchVersionById(id: number, callback: msRest.ServiceCallback<string>): void;
+  getSwitchVersionById(id: number, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<string>): void;
+  getSwitchVersionById(id: number, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<string>): Promise<Models.GetSwitchVersionByIdResponse> {
+    return this.sendOperationRequest(
+      {
+        id,
+        options
+      },
+      getSwitchVersionByIdOperationSpec,
+      callback) as Promise<Models.GetSwitchVersionByIdResponse>;
+  }
+  // methods on the client.
+
+  /**
+   * @summary Gets the switch version.
+   *
+   * @param {string} boardName Name of the board.
+   *
+   * @param {string} switchName Name of the switch.
+   *
+   * @param {RequestOptionsBase} [options] Optional Parameters.
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse} The deserialized result object.
+   *
+   * @reject {Error|ServiceError} The error object.
+   */
+  getSwitchVersionByName(boardName: string, switchName: string): Promise<Models.GetSwitchVersionByNameResponse>;
+  getSwitchVersionByName(boardName: string, switchName: string, options: msRest.RequestOptionsBase): Promise<Models.GetSwitchVersionByNameResponse>;
+  getSwitchVersionByName(boardName: string, switchName: string, callback: msRest.ServiceCallback<string>): void;
+  getSwitchVersionByName(boardName: string, switchName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<string>): void;
+  getSwitchVersionByName(boardName: string, switchName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<string>): Promise<Models.GetSwitchVersionByNameResponse> {
+    return this.sendOperationRequest(
+      {
+        boardName,
+        switchName,
+        options
+      },
+      getSwitchVersionByNameOperationSpec,
+      callback) as Promise<Models.GetSwitchVersionByNameResponse>;
+  }
+  // methods on the client.
+
+  /**
    * @summary Gets the task switch.
    *
    * @param {number} switchId The switch identifier.
@@ -1384,6 +1443,53 @@ const getAllSwitchHistoryBySwitchOperationSpec: msRest.OperationSpec = {
     },
     401: {},
     403: {},
+    default: {}
+  },
+  serializer
+};
+
+const getSwitchVersionByIdOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "v1/switch/{id}/version",
+  urlParameters: [
+    Parameters.id
+  ],
+  responses: {
+    200: {
+      bodyMapper: {
+        serializedName: "parsedResponse",
+        type: {
+          name: "String"
+        }
+      }
+    },
+    401: {},
+    403: {},
+    404: {},
+    default: {}
+  },
+  serializer
+};
+
+const getSwitchVersionByNameOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "v1/board/{boardName}/switch/{switchName}/version",
+  urlParameters: [
+    Parameters.boardName,
+    Parameters.switchName
+  ],
+  responses: {
+    200: {
+      bodyMapper: {
+        serializedName: "parsedResponse",
+        type: {
+          name: "String"
+        }
+      }
+    },
+    401: {},
+    403: {},
+    404: {},
     default: {}
   },
   serializer
