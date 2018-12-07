@@ -1389,6 +1389,52 @@ export type GetAllSwitchHistoryBySwitchResponse = Array<SwitchHistoryModel> & {
 };
 
 /**
+ * Contains response data for the getSwitchVersionById operation.
+ */
+export type GetSwitchVersionByIdResponse = {
+  /**
+   * The parsed response body.
+   */
+  body: string;
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: string;
+    };
+};
+
+/**
+ * Contains response data for the getSwitchVersionByName operation.
+ */
+export type GetSwitchVersionByNameResponse = {
+  /**
+   * The parsed response body.
+   */
+  body: string;
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: string;
+    };
+};
+
+/**
  * Contains response data for the getTaskSwitch operation.
  */
 export type GetTaskSwitchResponse = Array<TaskSwitchModel> & {
