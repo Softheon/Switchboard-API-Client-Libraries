@@ -144,172 +144,6 @@ export const BoardPostModel: msRest.CompositeMapper = {
   }
 };
 
-export const BoardHistoryModel: msRest.CompositeMapper = {
-  serializedName: "BoardHistoryModel",
-  type: {
-    name: "Composite",
-    className: "BoardHistoryModel",
-    modelProperties: {
-      boardHistoryId: {
-        nullable: false,
-        serializedName: "boardHistoryId",
-        type: {
-          name: "Number"
-        }
-      },
-      boardId: {
-        nullable: false,
-        serializedName: "boardId",
-        type: {
-          name: "Number"
-        }
-      },
-      accountId: {
-        nullable: false,
-        serializedName: "accountId",
-        type: {
-          name: "Number"
-        }
-      },
-      createdUserId: {
-        nullable: false,
-        serializedName: "createdUserId",
-        type: {
-          name: "Number"
-        }
-      },
-      modifiedUserId: {
-        nullable: false,
-        serializedName: "modifiedUserId",
-        type: {
-          name: "Number"
-        }
-      },
-      name: {
-        serializedName: "name",
-        type: {
-          name: "String"
-        }
-      },
-      description: {
-        serializedName: "description",
-        type: {
-          name: "String"
-        }
-      },
-      createdDate: {
-        nullable: false,
-        serializedName: "createdDate",
-        type: {
-          name: "DateTime"
-        }
-      },
-      modifiedDate: {
-        nullable: false,
-        serializedName: "modifiedDate",
-        type: {
-          name: "DateTime"
-        }
-      },
-      createdUserName: {
-        serializedName: "createdUserName",
-        type: {
-          name: "String"
-        }
-      },
-      modifiedUserName: {
-        serializedName: "modifiedUserName",
-        type: {
-          name: "String"
-        }
-      }
-    }
-  }
-};
-
-export const TaskBoardModel: msRest.CompositeMapper = {
-  serializedName: "TaskBoardModel",
-  type: {
-    name: "Composite",
-    className: "TaskBoardModel",
-    modelProperties: {
-      taskId: {
-        nullable: false,
-        serializedName: "taskId",
-        type: {
-          name: "Number"
-        }
-      },
-      boardId: {
-        nullable: false,
-        serializedName: "boardId",
-        type: {
-          name: "Number"
-        }
-      },
-      startDate: {
-        nullable: false,
-        serializedName: "startDate",
-        type: {
-          name: "DateTime"
-        }
-      },
-      endDate: {
-        serializedName: "endDate",
-        type: {
-          name: "DateTime"
-        }
-      }
-    }
-  }
-};
-
-export const TaskBoardPostModel: msRest.CompositeMapper = {
-  serializedName: "TaskBoardPostModel",
-  type: {
-    name: "Composite",
-    className: "TaskBoardPostModel",
-    modelProperties: {
-      startDate: {
-        nullable: false,
-        serializedName: "startDate",
-        type: {
-          name: "DateTime"
-        }
-      },
-      endDate: {
-        serializedName: "endDate",
-        type: {
-          name: "DateTime"
-        }
-      }
-    }
-  }
-};
-
-export const TaskBoardPutModel: msRest.CompositeMapper = {
-  serializedName: "TaskBoardPutModel",
-  type: {
-    name: "Composite",
-    className: "TaskBoardPutModel",
-    modelProperties: {
-      startDate: {
-        nullable: false,
-        serializedName: "startDate",
-        type: {
-          name: "DateTime"
-        }
-      },
-      endDate: {
-        serializedName: "endDate",
-        type: {
-          name: "DateTime"
-        }
-      }
-    }
-  }
-};
-
 export const BoardFilterModel: msRest.CompositeMapper = {
   serializedName: "BoardFilterModel",
   type: {
@@ -322,16 +156,26 @@ export const BoardFilterModel: msRest.CompositeMapper = {
           name: "String"
         }
       },
-      createdDate: {
-        nullable: false,
-        serializedName: "createdDate",
+      maxCreatedDate: {
+        serializedName: "maxCreatedDate",
         type: {
           name: "DateTime"
         }
       },
-      modifiedDate: {
-        nullable: false,
-        serializedName: "modifiedDate",
+      minCreatedDate: {
+        serializedName: "minCreatedDate",
+        type: {
+          name: "DateTime"
+        }
+      },
+      maxModifiedDate: {
+        serializedName: "maxModifiedDate",
+        type: {
+          name: "DateTime"
+        }
+      },
+      minModifiedDate: {
+        serializedName: "minModifiedDate",
         type: {
           name: "DateTime"
         }
@@ -656,89 +500,6 @@ export const SwitchHistoryModel: msRest.CompositeMapper = {
         serializedName: "modifiedUserName",
         type: {
           name: "String"
-        }
-      }
-    }
-  }
-};
-
-export const TaskSwitchModel: msRest.CompositeMapper = {
-  serializedName: "TaskSwitchModel",
-  type: {
-    name: "Composite",
-    className: "TaskSwitchModel",
-    modelProperties: {
-      taskId: {
-        nullable: false,
-        serializedName: "taskId",
-        type: {
-          name: "Number"
-        }
-      },
-      switchId: {
-        nullable: false,
-        serializedName: "switchId",
-        type: {
-          name: "Number"
-        }
-      },
-      startDate: {
-        nullable: false,
-        serializedName: "startDate",
-        type: {
-          name: "DateTime"
-        }
-      },
-      endDate: {
-        serializedName: "endDate",
-        type: {
-          name: "DateTime"
-        }
-      }
-    }
-  }
-};
-
-export const TaskSwitchPostModel: msRest.CompositeMapper = {
-  serializedName: "TaskSwitchPostModel",
-  type: {
-    name: "Composite",
-    className: "TaskSwitchPostModel",
-    modelProperties: {
-      startDate: {
-        nullable: false,
-        serializedName: "startDate",
-        type: {
-          name: "DateTime"
-        }
-      },
-      endDate: {
-        serializedName: "endDate",
-        type: {
-          name: "DateTime"
-        }
-      }
-    }
-  }
-};
-
-export const TaskSwitchPutModel: msRest.CompositeMapper = {
-  serializedName: "TaskSwitchPutModel",
-  type: {
-    name: "Composite",
-    className: "TaskSwitchPutModel",
-    modelProperties: {
-      startDate: {
-        nullable: false,
-        serializedName: "startDate",
-        type: {
-          name: "DateTime"
-        }
-      },
-      endDate: {
-        serializedName: "endDate",
-        type: {
-          name: "DateTime"
         }
       }
     }
