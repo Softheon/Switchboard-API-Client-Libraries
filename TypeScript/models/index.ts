@@ -95,122 +95,6 @@ export interface BoardPostModel {
 
 /**
  * @interface
- * An interface representing BoardHistoryModel.
- * The Board History Model.
- *
- */
-export interface BoardHistoryModel {
-  /**
-   * @member {number} [boardHistoryId] Gets or sets the board history
-   * identifier.
-   */
-  boardHistoryId?: number;
-  /**
-   * @member {number} [boardId] Gets or sets the board identifier.
-   */
-  boardId?: number;
-  /**
-   * @member {number} [accountId] Gets or sets the account identifier.
-   */
-  accountId?: number;
-  /**
-   * @member {number} [createdUserId] Gets or sets the created user identifier.
-   */
-  createdUserId?: number;
-  /**
-   * @member {number} [modifiedUserId] Gets or sets the modified user
-   * identifier.
-   */
-  modifiedUserId?: number;
-  /**
-   * @member {string} [name] Gets or sets the name.
-   */
-  name?: string;
-  /**
-   * @member {string} [description] Gets or sets the description.
-   */
-  description?: string;
-  /**
-   * @member {Date} [createdDate] Gets or sets the created date.
-   */
-  createdDate?: Date;
-  /**
-   * @member {Date} [modifiedDate] Gets or sets the modified date.
-   */
-  modifiedDate?: Date;
-  /**
-   * @member {string} [createdUserName] Gets or sets the name of the created
-   * user.
-   */
-  createdUserName?: string;
-  /**
-   * @member {string} [modifiedUserName] Gets or sets the name of the modified
-   * user.
-   */
-  modifiedUserName?: string;
-}
-
-/**
- * @interface
- * An interface representing TaskBoardModel.
- * The task board model.
- *
- */
-export interface TaskBoardModel {
-  /**
-   * @member {number} [taskId] Gets or sets the task identifier.
-   */
-  taskId?: number;
-  /**
-   * @member {number} [boardId] Gets or sets the board identifier.
-   */
-  boardId?: number;
-  /**
-   * @member {Date} [startDate] Gets or sets the start date.
-   */
-  startDate?: Date;
-  /**
-   * @member {Date} [endDate] Gets or sets the end date.
-   */
-  endDate?: Date;
-}
-
-/**
- * @interface
- * An interface representing TaskBoardPostModel.
- * Task Board Post Model.
- *
- */
-export interface TaskBoardPostModel {
-  /**
-   * @member {Date} [startDate] Gets or sets the start date.
-   */
-  startDate?: Date;
-  /**
-   * @member {Date} [endDate] Gets or sets the end date.
-   */
-  endDate?: Date;
-}
-
-/**
- * @interface
- * An interface representing TaskBoardPutModel.
- * The task board put model.
- *
- */
-export interface TaskBoardPutModel {
-  /**
-   * @member {Date} [startDate] Gets or sets the start date.
-   */
-  startDate?: Date;
-  /**
-   * @member {Date} [endDate] Gets or sets the end date.
-   */
-  endDate?: Date;
-}
-
-/**
- * @interface
  * An interface representing BoardFilterModel.
  * The Board Get Request Model.
  *
@@ -221,13 +105,21 @@ export interface BoardFilterModel {
    */
   name?: string;
   /**
-   * @member {Date} [createdDate] Gets or sets the created date.
+   * @member {Date} [maxCreatedDate] Gets or sets the maximum created date.
    */
-  createdDate?: Date;
+  maxCreatedDate?: Date;
   /**
-   * @member {Date} [modifiedDate] Gets or sets the modified date.
+   * @member {Date} [minCreatedDate] Gets or sets the minimum created date.
    */
-  modifiedDate?: Date;
+  minCreatedDate?: Date;
+  /**
+   * @member {Date} [maxModifiedDate] Gets or sets the maximum modified date.
+   */
+  maxModifiedDate?: Date;
+  /**
+   * @member {Date} [minModifiedDate] Gets or sets the minimum modified date.
+   */
+  minModifiedDate?: Date;
 }
 
 /**
@@ -431,65 +323,6 @@ export interface SwitchHistoryModel {
 
 /**
  * @interface
- * An interface representing TaskSwitchModel.
- * Task Switch Model.
- *
- */
-export interface TaskSwitchModel {
-  /**
-   * @member {number} [taskId] Gets or sets the task identifier.
-   */
-  taskId?: number;
-  /**
-   * @member {number} [switchId] Gets or sets the switch identifier.
-   */
-  switchId?: number;
-  /**
-   * @member {Date} [startDate] Gets or sets the start date.
-   */
-  startDate?: Date;
-  /**
-   * @member {Date} [endDate] Gets or sets the end date.
-   */
-  endDate?: Date;
-}
-
-/**
- * @interface
- * An interface representing TaskSwitchPostModel.
- * Task Switch Model.
- *
- */
-export interface TaskSwitchPostModel {
-  /**
-   * @member {Date} [startDate] Gets or sets the start date.
-   */
-  startDate?: Date;
-  /**
-   * @member {Date} [endDate] Gets or sets the end date.
-   */
-  endDate?: Date;
-}
-
-/**
- * @interface
- * An interface representing TaskSwitchPutModel.
- * The task switch put model.
- *
- */
-export interface TaskSwitchPutModel {
-  /**
-   * @member {Date} [startDate] Gets or sets the start date.
-   */
-  startDate?: Date;
-  /**
-   * @member {Date} [endDate] Gets or sets the end date.
-   */
-  endDate?: Date;
-}
-
-/**
- * @interface
  * An interface representing SwitchFilterModel.
  * The Switch Get Request Model.
  *
@@ -543,34 +376,6 @@ export interface SoftheonSwitchboardCreateBoardOptionalParams extends msRest.Req
 
 /**
  * @interface
- * An interface representing SoftheonSwitchboardUpdateTaskBoardOptionalParams.
- * Optional Parameters.
- *
- * @extends RequestOptionsBase
- */
-export interface SoftheonSwitchboardUpdateTaskBoardOptionalParams extends msRest.RequestOptionsBase {
-  /**
-   * @member {TaskBoardPutModel} [model] The model.
-   */
-  model?: TaskBoardPutModel;
-}
-
-/**
- * @interface
- * An interface representing SoftheonSwitchboardCreateTaskBoardOptionalParams.
- * Optional Parameters.
- *
- * @extends RequestOptionsBase
- */
-export interface SoftheonSwitchboardCreateTaskBoardOptionalParams extends msRest.RequestOptionsBase {
-  /**
-   * @member {TaskBoardPostModel} [model] The model.
-   */
-  model?: TaskBoardPostModel;
-}
-
-/**
- * @interface
  * An interface representing SoftheonSwitchboardGetBoardsByFilterOptionalParams.
  * Optional Parameters.
  *
@@ -578,9 +383,9 @@ export interface SoftheonSwitchboardCreateTaskBoardOptionalParams extends msRest
  */
 export interface SoftheonSwitchboardGetBoardsByFilterOptionalParams extends msRest.RequestOptionsBase {
   /**
-   * @member {BoardFilterModel} [model] The model.
+   * @member {BoardFilterModel} [filterModel] The filter model.
    */
-  model?: BoardFilterModel;
+  filterModel?: BoardFilterModel;
 }
 
 /**
@@ -609,34 +414,6 @@ export interface SoftheonSwitchboardUpdateSwitchOptionalParams extends msRest.Re
    * @member {SwitchPutModel} [switchPutModel] The switch model.
    */
   switchPutModel?: SwitchPutModel;
-}
-
-/**
- * @interface
- * An interface representing SoftheonSwitchboardUpdateTaskSwitchOptionalParams.
- * Optional Parameters.
- *
- * @extends RequestOptionsBase
- */
-export interface SoftheonSwitchboardUpdateTaskSwitchOptionalParams extends msRest.RequestOptionsBase {
-  /**
-   * @member {TaskSwitchPutModel} [model] The model.
-   */
-  model?: TaskSwitchPutModel;
-}
-
-/**
- * @interface
- * An interface representing SoftheonSwitchboardCreateTaskSwitchOptionalParams.
- * Optional Parameters.
- *
- * @extends RequestOptionsBase
- */
-export interface SoftheonSwitchboardCreateTaskSwitchOptionalParams extends msRest.RequestOptionsBase {
-  /**
-   * @member {TaskSwitchPostModel} [model] The model.
-   */
-  model?: TaskSwitchPostModel;
 }
 
 /**
@@ -873,142 +650,6 @@ export type CreateBoardResponse = {
 };
 
 /**
- * Contains response data for the getAllBoardHistoryForTheAccount operation.
- */
-export type GetAllBoardHistoryForTheAccountResponse = Array<BoardHistoryModel> & {
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: BoardHistoryModel[];
-    };
-};
-
-/**
- * Contains response data for the getBoardHistoryById operation.
- */
-export type GetBoardHistoryByIdResponse = {
-  /**
-   * Gets or sets the board history identifier.
-   */
-  boardHistoryId?: number;
-  /**
-   * Gets or sets the board identifier.
-   */
-  boardId?: number;
-  /**
-   * Gets or sets the account identifier.
-   */
-  accountId?: number;
-  /**
-   * Gets or sets the created user identifier.
-   */
-  createdUserId?: number;
-  /**
-   * Gets or sets the modified user identifier.
-   */
-  modifiedUserId?: number;
-  /**
-   * Gets or sets the name.
-   */
-  name?: string;
-  /**
-   * Gets or sets the description.
-   */
-  description?: string;
-  /**
-   * Gets or sets the created date.
-   */
-  createdDate?: Date;
-  /**
-   * Gets or sets the modified date.
-   */
-  modifiedDate?: Date;
-  /**
-   * Gets or sets the name of the created user.
-   */
-  createdUserName?: string;
-  /**
-   * Gets or sets the name of the modified user.
-   */
-  modifiedUserName?: string;
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: BoardHistoryModel;
-    };
-};
-
-/**
- * Contains response data for the getTaskBoard operation.
- */
-export type GetTaskBoardResponse = Array<TaskBoardModel> & {
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: TaskBoardModel[];
-    };
-};
-
-/**
- * Contains response data for the createTaskBoard operation.
- */
-export type CreateTaskBoardResponse = {
-  /**
-   * Gets or sets the task identifier.
-   */
-  taskId?: number;
-  /**
-   * Gets or sets the board identifier.
-   */
-  boardId?: number;
-  /**
-   * Gets or sets the start date.
-   */
-  startDate?: Date;
-  /**
-   * Gets or sets the end date.
-   */
-  endDate?: Date;
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: TaskBoardModel;
-    };
-};
-
-/**
  * Contains response data for the getBoardsByFilter operation.
  */
 export type GetBoardsByFilterResponse = Array<BoardModel> & {
@@ -1197,9 +838,9 @@ export type GetSwitchByIdResponse = {
 };
 
 /**
- * Contains response data for the getSwitchByName operation.
+ * Contains response data for the getSwitchBySwitchName operation.
  */
-export type GetSwitchByNameResponse = {
+export type GetSwitchBySwitchNameResponse = {
   /**
    * Gets or sets the switch identifier.
    */
@@ -1272,13 +913,9 @@ export type GetSwitchByNameResponse = {
 };
 
 /**
- * Contains response data for the getSwitchHistory operation.
+ * Contains response data for the getSwitchByBoardName operation.
  */
-export type GetSwitchHistoryResponse = {
-  /**
-   * Gets or sets the switch history identifier.
-   */
-  switchHistoryId?: number;
+export type GetSwitchByBoardNameResponse = {
   /**
    * Gets or sets the switch identifier.
    */
@@ -1346,26 +983,7 @@ export type GetSwitchHistoryResponse = {
       /**
        * The response body as parsed JSON or XML
        */
-      parsedBody: SwitchHistoryModel;
-    };
-};
-
-/**
- * Contains response data for the getAllSwitchHistoryByBoard operation.
- */
-export type GetAllSwitchHistoryByBoardResponse = Array<SwitchHistoryModel> & {
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: SwitchHistoryModel[];
+      parsedBody: SwitchModel;
     };
 };
 
@@ -1435,9 +1053,65 @@ export type GetSwitchVersionByNameResponse = {
 };
 
 /**
- * Contains response data for the getTaskSwitch operation.
+ * Contains response data for the getSwitchByVersion operation.
  */
-export type GetTaskSwitchResponse = Array<TaskSwitchModel> & {
+export type GetSwitchByVersionResponse = {
+  /**
+   * Gets or sets the switch identifier.
+   */
+  switchId?: number;
+  /**
+   * Gets or sets the board identifier.
+   */
+  boardId?: number;
+  /**
+   * Gets or sets the created user identifier.
+   */
+  createdUserId?: number;
+  /**
+   * Gets or sets the modified user identifier.
+   */
+  modifiedUserId?: number;
+  /**
+   * Gets or sets the name.
+   */
+  name?: string;
+  /**
+   * Gets or sets the description.
+   */
+  description?: string;
+  /**
+   * Gets or sets the comment.
+   */
+  comment?: string;
+  /**
+   * Gets or sets the created date.
+   */
+  createdDate?: Date;
+  /**
+   * Gets or sets the modified date.
+   */
+  modifiedDate?: Date;
+  /**
+   * Gets or sets the value.
+   */
+  value?: string;
+  /**
+   * Gets or sets the type of the value.
+   */
+  valueType?: string;
+  /**
+   * Gets or sets the version.
+   */
+  version?: string;
+  /**
+   * Gets or sets the name of the created user.
+   */
+  createdUserName?: string;
+  /**
+   * Gets or sets the name of the modified user.
+   */
+  modifiedUserName?: string;
   /**
    * The underlying HTTP response.
    */
@@ -1449,34 +1123,7 @@ export type GetTaskSwitchResponse = Array<TaskSwitchModel> & {
       /**
        * The response body as parsed JSON or XML
        */
-      parsedBody: TaskSwitchModel[];
-    };
-};
-
-/**
- * Contains response data for the createTaskSwitch operation.
- */
-export type CreateTaskSwitchResponse = {
-  /**
-   * Gets or sets the start date.
-   */
-  startDate?: Date;
-  /**
-   * Gets or sets the end date.
-   */
-  endDate?: Date;
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: TaskSwitchPostModel;
+      parsedBody: SwitchModel;
     };
 };
 
