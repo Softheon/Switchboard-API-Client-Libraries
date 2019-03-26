@@ -452,7 +452,10 @@ class SoftheonSwitchboard extends SoftheonSwitchboardContext {
    *
    * @param {number} switchId The switch identifier.
    *
-   * @param {RequestOptionsBase} [options] Optional Parameters.
+   * @param {string} pageSize
+   *
+   * @param {SoftheonSwitchboardGetAllSwitchHistoryBySwitchOptionalParams} [options] Optional
+   * Parameters.
    *
    * @returns {Promise} A promise is returned
    *
@@ -460,14 +463,15 @@ class SoftheonSwitchboard extends SoftheonSwitchboardContext {
    *
    * @reject {Error|ServiceError} The error object.
    */
-  getAllSwitchHistoryBySwitch(switchId: number): Promise<Models.GetAllSwitchHistoryBySwitchResponse>;
-  getAllSwitchHistoryBySwitch(switchId: number, options: msRest.RequestOptionsBase): Promise<Models.GetAllSwitchHistoryBySwitchResponse>;
-  getAllSwitchHistoryBySwitch(switchId: number, callback: msRest.ServiceCallback<Models.SwitchHistoryModel[]>): void;
-  getAllSwitchHistoryBySwitch(switchId: number, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.SwitchHistoryModel[]>): void;
-  getAllSwitchHistoryBySwitch(switchId: number, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.SwitchHistoryModel[]>): Promise<Models.GetAllSwitchHistoryBySwitchResponse> {
+  getAllSwitchHistoryBySwitch(switchId: number, pageSize: string): Promise<Models.GetAllSwitchHistoryBySwitchResponse>;
+  getAllSwitchHistoryBySwitch(switchId: number, pageSize: string, options: Models.SoftheonSwitchboardGetAllSwitchHistoryBySwitchOptionalParams): Promise<Models.GetAllSwitchHistoryBySwitchResponse>;
+  getAllSwitchHistoryBySwitch(switchId: number, pageSize: string, callback: msRest.ServiceCallback<Models.SwitchHistoryModel[]>): void;
+  getAllSwitchHistoryBySwitch(switchId: number, pageSize: string, options: Models.SoftheonSwitchboardGetAllSwitchHistoryBySwitchOptionalParams, callback: msRest.ServiceCallback<Models.SwitchHistoryModel[]>): void;
+  getAllSwitchHistoryBySwitch(switchId: number, pageSize: string, options?: Models.SoftheonSwitchboardGetAllSwitchHistoryBySwitchOptionalParams, callback?: msRest.ServiceCallback<Models.SwitchHistoryModel[]>): Promise<Models.GetAllSwitchHistoryBySwitchResponse> {
     return this.sendOperationRequest(
       {
         switchId,
+        pageSize,
         options
       },
       getAllSwitchHistoryBySwitchOperationSpec,
@@ -767,6 +771,7 @@ const createBoardOperationSpec: msRest.OperationSpec = {
     400: {},
     401: {},
     403: {},
+    409: {},
     default: {}
   },
   serializer
@@ -854,6 +859,7 @@ const createSwitchOperationSpec: msRest.OperationSpec = {
     },
     401: {},
     403: {},
+    409: {},
     default: {}
   },
   serializer
@@ -957,9 +963,14 @@ const getSwitchByBoardNameOperationSpec: msRest.OperationSpec = {
 
 const getAllSwitchHistoryBySwitchOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
-  path: "v1/switch/{switchId}/switchhistory",
+  path: "v1/switch/{switchId}/switchhistory/{pageNumber}/{pageSize}",
   urlParameters: [
-    Parameters.switchId
+    Parameters.switchId,
+    Parameters.pageSize
+  ],
+  queryParameters: [
+    Parameters.pageNumber,
+    Parameters.pageSizeChoice
   ],
   responses: {
     200: {
